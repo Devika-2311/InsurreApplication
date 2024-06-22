@@ -1,7 +1,8 @@
 package com.example.model;
  
 import java.time.LocalDate;
- 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -33,8 +34,8 @@ public class UserPolicy {
 	public Long getUserPolicyId() {
 		return userPolicyId;
 	}
-	public void setUserPolicyId(Long userPolicyId) {
-		this.userPolicyId = userPolicyId;
+	public void setUserPolicyID(Long userPolicyId2) {
+		this.userPolicyId = userPolicyId2;
 	}
 	public float getCoverage() {
 		return coverage;

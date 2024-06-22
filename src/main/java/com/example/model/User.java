@@ -1,8 +1,12 @@
 package com.example.model;
 
 import java.time.LocalDate;
-import jakarta.validation.constraints.NotNull;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,14 +19,29 @@ public class User {
 	 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
+    @NotBlank(message = "First Name is required")
 	private String firstName;
+    
+    @NotBlank(message = "Last Name is required")
 	private String lastName;
+    @NotNull(message = "Date of Birth is required")
 	private LocalDate dob;
+    @NotBlank(
+    		message
+    		= "Phone Number is required")
+    @Pattern(regexp = "^[6-9]\\d{9}$", message = "Phone Number must be 10 digits and start with 6, 7, 8, or 9")
 	private String phoneNo;
+    @Email(message = "Email address is invalid")
+    @NotBlank(message = "Email is required")
 	private String emailId;
+    @NotBlank(
+    		message
+    		= "Address is required")
 	private String address;
 	 @NotNull
 	 @Column(unique=true)
+	  @NotNull(message = "Password is required")
+	    @Size(min = 8, message = "Password must be at least 8 characters long")
 	private String password;
 	// @Column(columnDefinition = "VARCHAR(255) default 'user'")
 	 private String role="user";

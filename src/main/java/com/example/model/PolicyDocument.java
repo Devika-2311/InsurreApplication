@@ -1,6 +1,7 @@
 package com.example.model;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -27,7 +28,7 @@ public class PolicyDocument {
 
     // Term policy specific fields
     private Double annualIncome;
-    private String anyDisease;
+    private Boolean anyDisease;
     private String nomineeName;
     private String nomineeRelation;
     private String nomineeEmail;
@@ -39,7 +40,7 @@ public class PolicyDocument {
     private Double weight;
     private Boolean smoke;
     private Boolean alcohol;
-    private String bp;
+    private Boolean bp;
     private Boolean diabetics;
     private String criticalDisease;
     private String healthReport;
@@ -68,8 +69,8 @@ public class PolicyDocument {
         return userPolicy;
     }
 
-    public void setUserPolicy(UserPolicy userPolicy) {
-        this.userPolicy = userPolicy;
+    public void setUserPolicy(UserPolicy userPolicy2) {
+        this.userPolicy = userPolicy2;
     }
 
     public PolicyType getPolicyType() {
@@ -85,16 +86,16 @@ public class PolicyDocument {
         return annualIncome;
     }
 
-    public void setAnnualIncome(Double annualIncome) {
-        this.annualIncome = annualIncome;
+    public void setAnnualIncome(Double annualIncome2) {
+        this.annualIncome = annualIncome2;
     }
 
-    public String getAnyDisease() {
+    public Boolean getAnyDisease() {
         return anyDisease;
     }
 
-    public void setAnyDisease(String anyDisease) {
-        this.anyDisease = anyDisease;
+    public void setAnyDisease(Boolean anyDisease2) {
+        this.anyDisease = anyDisease2;
     }
 
     public String getNomineeName() {
@@ -170,11 +171,11 @@ public class PolicyDocument {
         this.alcohol = alcohol;
     }
 
-    public String getBp() {
+    public Boolean getBp() {
         return bp;
     }
 
-    public void setBp(String bp) {
+    public void setBp(Boolean bp) {
         this.bp = bp;
     }
 
@@ -273,8 +274,8 @@ public class PolicyDocument {
 	}
 
 	public PolicyDocument(Long policyDetailsId, UserPolicy userPolicy, PolicyType policyType, Double annualIncome,
-			String anyDisease, String nomineeName, String nomineeRelation, String nomineeEmail, String nomineeProof,
-			Integer age, Double height, Double weight, Boolean smoke, Boolean alcohol, String bp, Boolean diabetics,
+			Boolean anyDisease, String nomineeName, String nomineeRelation, String nomineeEmail, String nomineeProof,
+			Integer age, Double height, Double weight, Boolean smoke, Boolean alcohol, Boolean bp, Boolean diabetics,
 			String criticalDisease, String healthReport, String vehicleModelNo, String licensePlateNo,
 			Double vehicleValue, String primaryUse, String vehicleType, Integer driverAge, String cheatSheet,
 			LocalDate purchaseDate) {

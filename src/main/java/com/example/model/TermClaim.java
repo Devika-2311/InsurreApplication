@@ -1,5 +1,5 @@
 package com.example.model;
-import jakarta.persistence.Column;
+import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -17,52 +17,88 @@ public class TermClaim {
 	  @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long termClaimId;
-	    @Column(name = "death_proof")
+	  
+	  private LocalDate dateofdemise;
 	    private String deathProof;
-	    @Column(name = "nominee_proof")
 	    private String nomineeProof;
+	    private String status;
+ 
 	    @OneToOne(fetch = FetchType.EAGER)
 	    @JoinColumn(name = "userPolicyId")
 	    private UserPolicy userPolicy;
+ 
 		public Long getTermClaimId() {
 			return termClaimId;
 		}
+ 
 		public void setTermClaimId(Long termClaimId) {
 			this.termClaimId = termClaimId;
 		}
+ 
 		public String getDeathProof() {
 			return deathProof;
 		}
+ 
 		public void setDeathProof(String deathProof) {
 			this.deathProof = deathProof;
 		}
+ 
 		public String getNomineeProof() {
 			return nomineeProof;
 		}
+ 
 		public void setNomineeProof(String nomineeProof) {
 			this.nomineeProof = nomineeProof;
 		}
+ 
 		public UserPolicy getUserPolicy() {
 			return userPolicy;
 		}
+ 
 		public void setUserPolicy(UserPolicy userPolicy) {
 			this.userPolicy = userPolicy;
 		}
+ 
+		public LocalDate getDateofdemise() {
+			return dateofdemise;
+		}
+ 
+		public void setDateofdemise(LocalDate dateofdemise) {
+			this.dateofdemise = dateofdemise;
+		}
+		
+		public String getStatus() {
+			return status;
+		}
+ 
+		public void setStatus(String status) {
+			this.status = status;
+		}
+		
+ 
 		@Override
 		public String toString() {
-			return "TermClaim [termClaimId=" + termClaimId + ", deathProof=" + deathProof + ", nomineeProof="
-					+ nomineeProof + ", userPolicy=" + userPolicy + "]";
+			return "TermClaim [termClaimId=" + termClaimId + ", dateofdemise=" + dateofdemise + ", deathProof="
+					+ deathProof + ", nomineeProof=" + nomineeProof + ", status=" + status + ", userPolicy="
+					+ userPolicy + "]";
 		}
-		public TermClaim(Long termClaimId, String deathProof, String nomineeProof, UserPolicy userPolicy) {
+		
+ 
+		public TermClaim(Long termClaimId, LocalDate dateofdemise, String deathProof, String nomineeProof,
+				String status, UserPolicy userPolicy) {
 			super();
 			this.termClaimId = termClaimId;
+			this.dateofdemise = dateofdemise;
 			this.deathProof = deathProof;
 			this.nomineeProof = nomineeProof;
+			this.status = status;
 			this.userPolicy = userPolicy;
 		}
+ 
 		public TermClaim() {
 			super();
 		}
  
-
+ 
+ 
 }
